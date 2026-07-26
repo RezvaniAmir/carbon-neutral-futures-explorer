@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const publicSiteUrl =
+  "https://hpan8.github.io/carbon-neutral-futures-explorer/";
+
 export const metadata: Metadata = {
   title: "Carbon-Neutral Futures Explorer",
   description:
     "An AI-supported urban decision platform for exploring pathways to carbon neutrality.",
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(isGitHubPages ? publicSiteUrl : "https://example.com"),
   alternates: { canonical: "/" },
   openGraph: {
     title: "Carbon-Neutral Futures Explorer",
