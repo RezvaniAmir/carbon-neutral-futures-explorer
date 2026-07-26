@@ -1,3 +1,5 @@
+import ChapterNavigator from "./ChapterNavigator";
+
 const contributions = [
   {
     number: "01",
@@ -311,6 +313,7 @@ export default function Home() {
           </details>
         </nav>
       </header>
+      <ChapterNavigator />
 
       <main id="main-content">
         <section className="hero" id="top" aria-labelledby="hero-title">
@@ -966,14 +969,137 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="next-chapter" aria-label="About chapter preview">
-          <span>Next chapter</span>
-          <strong>About the project and its partners</strong>
-          <span aria-hidden="true">07 ↘</span>
+        <section className="about-section" id="about" aria-labelledby="about-title">
+          <div className="section-number" aria-hidden="true">07</div>
+          <div className="about-visual">
+            <img
+              src="/images/project/stockcake-urban-green-corridor-original.jpg"
+              alt="Tree-lined urban corridor with pedestrians, cycling space and integrated greenery"
+              loading="lazy"
+            />
+            <p>
+              Adapted with AI from an original image by StockCake; used with
+              permission.
+            </p>
+          </div>
+
+          <div className="about-content">
+            <p className="eyebrow">About the project</p>
+            <h2 id="about-title">Research shaped around practical planning needs</h2>
+            <p className="about-lead">
+              The Carbon-Neutral Futures Explorer is being developed through{" "}
+              <strong>
+                AI-Driven Sustainable Spatial Planning: Advancing
+                Climate-Neutral Cities through Digital Innovation
+              </strong>{" "}
+              (2025–2028).
+            </p>
+            <p>
+              The project combines research on climate action, AI-supported
+              urban planning and nature-based solutions to support cities in
+              developing effective climate strategies through spatial
+              planning. It builds on the earlier{" "}
+              <strong>AI-powered knowledge integration to Carbon-neutral Cities</strong>{" "}
+              project and extends the decision-support approach for large,
+              medium and small urban contexts.
+            </p>
+            <p>
+              The tools are being co-developed with planners and other
+              stakeholders so that scenario assumptions, model results and
+              visualizations respond to practical planning needs.
+            </p>
+            <a
+              className="about-project-link"
+              href="https://www.kth.se/water/research/research-themes/society/extreme-events/on-going-projects/ai-driven-sustainable-spatial-planning-advancing-climate-neutral-cities-through-digital-innovation-1.1408101"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read about the project at KTH ↗
+            </a>
+
+            <div className="about-meta">
+              <div>
+                <span>Project lead</span>
+                <strong>KTH through WaterCentre@KTH</strong>
+              </div>
+              <div>
+                <span>Principal investigator</span>
+                <strong>Zahra Kalantari</strong>
+              </div>
+              <div>
+                <span>Project period</span>
+                <strong>2025–2028</strong>
+              </div>
+              <div>
+                <span>Funding</span>
+                <strong>Formas through Smart Built Environment</strong>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div>
+                <span className="eyebrow">Contact</span>
+                <strong>Zahra Kalantari</strong>
+                <p>Professor, KTH Royal Institute of Technology · Project Principal Investigator</p>
+              </div>
+              <div className="contact-links">
+                <a href="mailto:zahrak@kth.se">zahrak@kth.se</a>
+                <a href="mailto:watercentre@kth.se">watercentre@kth.se</a>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <div id="about" className="future-anchor" />
+        <section className="partner-band" aria-labelledby="partners-title">
+          <div className="partner-band-heading">
+            <p className="eyebrow">Project consortium</p>
+            <h2 id="partners-title">Research and planning partners</h2>
+            <p>
+              Led by KTH Royal Institute of Technology through
+              WaterCentre@KTH, with research and planning partners across the
+              consortium.
+            </p>
+          </div>
+          <div className="logo-grid">
+            <figure className="logo-kth">
+              <img src="/images/logos/KTH_logo_RGB_bla.png" alt="KTH Royal Institute of Technology" loading="lazy" />
+              <figcaption>WaterCentre@KTH</figcaption>
+            </figure>
+            <figure><img src="/images/logos/logo-colors-mit-red.png" alt="Massachusetts Institute of Technology" loading="lazy" /></figure>
+            <figure><img src="/images/logos/University_of_Illinois_at_Urbana-Champaign_Wordmark.svg.webp" alt="University of Illinois Urbana-Champaign" loading="lazy" /></figure>
+            <figure><img src="/images/logos/Sjtu-logo-standard-red.png" alt="Shanghai Jiao Tong University" loading="lazy" /></figure>
+            <figure><img src="/images/logos/Region_Stockholm.svg.webp" alt="Region Stockholm" loading="lazy" /></figure>
+            <figure><img src="/images/logos/tbg-kommun.svg" alt="Trelleborg Municipality" loading="lazy" /></figure>
+          </div>
+          <div className="funder-row">
+            <span>Funded by</span>
+            <img src="/images/logos/formas.png" alt="Formas" loading="lazy" />
+            <span>through</span>
+            <img src="/images/logos/smart_built_env.png" alt="Smart Built Environment" loading="lazy" />
+          </div>
+        </section>
       </main>
+
+      <footer className="site-footer">
+        <div className="footer-brand">
+          <a className="brand" href="#top">
+            <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
+            <span>Carbon-Neutral Futures Explorer</span>
+          </a>
+          <p>AI-supported urban decision-making for carbon-neutral futures.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="https://www.kth.se/water/research/research-themes/society/extreme-events/on-going-projects/ai-driven-sustainable-spatial-planning-advancing-climate-neutral-cities-through-digital-innovation-1.1408101" target="_blank" rel="noopener noreferrer">Project information ↗</a>
+          <a href="#resources">Tools and resources</a>
+          <a href="mailto:watercentre@kth.se">Contact</a>
+          <a href="#top">Return to the beginning ↑</a>
+        </nav>
+        <div className="footer-credits">
+          <strong>Image and research credits</strong>
+          <p>Selected visuals and maps: KTH WaterCentre and the LEAM Team.</p>
+          <p>Adapted StockCake visual: adapted with AI from an original image by StockCake; used with permission.</p>
+        </div>
+      </footer>
     </>
   );
 }
