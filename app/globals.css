@@ -471,6 +471,356 @@ h3 {
 .mobility-band p { color: rgba(255,255,255,.7); }
 .closing-line { margin: 28px 0 0; padding-top: 23px; border-top: 1px solid rgba(255,255,255,.18); color: var(--white) !important; font-family: Georgia, serif; font-size: 1.15rem; }
 
+.pathway-section,
+.systems-section {
+  position: relative;
+  padding: 125px clamp(24px, 6.4vw, 104px);
+  overflow: hidden;
+}
+
+.pathway-section {
+  background: var(--paper-deep);
+}
+
+.systems-section {
+  background: var(--teal-950);
+  color: var(--white);
+}
+
+.pathway-section .section-number,
+.systems-section .section-number {
+  top: 66px;
+}
+
+.systems-section .section-number {
+  color: rgba(255,255,255,.035);
+}
+
+.section-heading {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(360px, 1.05fr) minmax(360px, .95fr);
+  gap: 9vw;
+  align-items: end;
+  max-width: 1320px;
+  margin: 0 auto 80px;
+}
+
+.section-heading > p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.systems-heading > p {
+  color: rgba(255,255,255,.66);
+}
+
+.systems-heading .eyebrow {
+  color: #b6cab4;
+}
+
+.pathway-roadmap {
+  position: relative;
+  min-height: 620px;
+  max-width: 1320px;
+  margin: 0 auto 70px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(rgba(246,244,236,.64), rgba(246,244,236,.68)),
+    url("/images/pathway/stakeholder-workshop.png") center / cover;
+  box-shadow: 0 28px 80px rgba(35,61,55,.12);
+}
+
+.roadmap-line {
+  position: absolute;
+  top: 205px;
+  right: 7%;
+  left: 7%;
+  height: 180px;
+  border-top: 4px solid var(--teal-800);
+  border-radius: 48% 52% 0 0 / 90% 90% 0 0;
+  transform: rotate(-2deg);
+  opacity: .72;
+}
+
+.pathway-steps {
+  position: relative;
+  min-height: 590px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pathway-step {
+  position: absolute;
+  width: 174px;
+}
+
+.pathway-step.step-1 { top: 247px; left: 5%; }
+.pathway-step.step-2 { top: 165px; left: 21%; }
+.pathway-step.step-3 { top: 127px; left: 38%; }
+.pathway-step.step-4 { top: 140px; left: 55%; }
+.pathway-step.step-5 { top: 195px; left: 71%; }
+.pathway-step.step-6 { top: 277px; right: 3%; }
+
+.pathway-step details {
+  position: relative;
+}
+
+.pathway-step summary {
+  display: grid;
+  width: 112px;
+  min-height: 112px;
+  place-content: center;
+  gap: 3px;
+  margin-inline: auto;
+  cursor: pointer;
+  list-style: none;
+  border: 1px solid rgba(18,61,57,.3);
+  border-radius: 50%;
+  background: rgba(255,254,250,.93);
+  box-shadow: 0 13px 34px rgba(13,48,46,.16);
+  text-align: center;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.pathway-step summary::-webkit-details-marker { display: none; }
+.pathway-step summary:hover { transform: translateY(-4px); }
+.pathway-step summary span { color: var(--amber); font-family: Georgia, serif; font-size: .78rem; }
+.pathway-step summary strong { font-size: .88rem; }
+.pathway-step details[open] summary { background: var(--amber); color: var(--white); }
+.pathway-step details[open] summary span { color: var(--white); }
+
+.step-detail {
+  position: absolute;
+  z-index: 4;
+  top: 125px;
+  left: 50%;
+  width: 285px;
+  padding: 19px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(18,61,57,.18);
+  border-radius: 14px;
+  background: rgba(255,254,250,.96);
+  box-shadow: 0 17px 44px rgba(13,48,46,.16);
+}
+
+.step-5 .step-detail,
+.step-6 .step-detail {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+.step-detail h3 {
+  margin-bottom: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.step-detail p {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.55;
+}
+
+.step-detail small {
+  color: var(--sage-700);
+  font-size: .69rem;
+  font-weight: 700;
+}
+
+.roadmap-credit {
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+.pathway-evidence {
+  display: grid;
+  gap: 34px;
+  max-width: 1180px;
+  margin: 0 auto 70px;
+}
+
+.evidence-card {
+  display: grid;
+  grid-template-columns: .72fr 1.28fr;
+  gap: 42px;
+  align-items: center;
+  padding: clamp(22px, 3.5vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+.evidence-card:nth-child(even) {
+  grid-template-columns: 1.28fr .72fr;
+}
+
+.evidence-card:nth-child(even) .evidence-copy { order: 2; }
+.evidence-card figure { margin: 0; }
+.evidence-card img,
+.evidence-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 14px;
+  background: var(--sage-100);
+  object-fit: contain;
+}
+
+.evidence-card figcaption,
+.system-module figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+.evidence-copy h3 {
+  margin: 13px 0 16px;
+}
+
+.evidence-copy p {
+  color: var(--muted);
+}
+
+.evidence-step,
+.system-index {
+  color: var(--amber);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.text-link {
+  display: inline-flex;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  color: var(--teal-800);
+  font-size: .86rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover { color: var(--amber); }
+
+.pathway-closing,
+.systems-closing {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.7rem);
+  line-height: 1.22;
+}
+
+.systems-list {
+  max-width: 1320px;
+  margin: 0 auto 90px;
+}
+
+.system-module {
+  display: grid;
+  grid-template-columns: minmax(310px, .72fr) minmax(500px, 1.28fr);
+  gap: 7vw;
+  align-items: center;
+  min-height: 680px;
+  padding: 72px 0;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+
+.system-module:nth-child(even) {
+  grid-template-columns: minmax(500px, 1.28fr) minmax(310px, .72fr);
+}
+
+.system-module:nth-child(even) .system-copy { order: 2; }
+.system-copy h3 { margin: 16px 0 23px; }
+.system-copy > p { color: rgba(255,255,255,.66); }
+.system-copy .text-link { margin-top: 11px; color: #c9dbca; }
+
+.system-module figure {
+  margin: 0;
+}
+
+.system-module figure img {
+  width: 100%;
+  max-height: 580px;
+  border-radius: 18px;
+  background: var(--white);
+  object-fit: contain;
+  box-shadow: 0 26px 80px rgba(0,0,0,.22);
+}
+
+.system-module figcaption {
+  color: rgba(255,255,255,.52);
+}
+
+.status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+  margin-top: 26px;
+}
+
+.tbd-label {
+  padding: 5px 9px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  color: rgba(255,255,255,.7);
+  font-size: .68rem;
+}
+
+.system-module-wide {
+  align-items: start;
+}
+
+.paired-figures {
+  display: grid;
+  gap: 20px;
+}
+
+.system-module-wide .paired-figures {
+  grid-template-columns: 1fr 1fr;
+}
+
+.system-module-wide .paired-figures img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.vertical-pair {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.vertical-pair figure:last-child img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.workshop-detail img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover !important;
+  object-position: center 66%;
+}
+
+.systems-closing {
+  color: #d9e4d7;
+}
+
 .next-chapter {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -540,6 +890,62 @@ h3 {
   .contributions { gap: 40px; margin-bottom: 86px; }
   .contributions-heading { position: static; }
   .mobility-band { gap: 32px; }
+  .pathway-section,
+  .systems-section { padding: 88px 24px; }
+  .section-heading { grid-template-columns: 1fr; gap: 28px; margin-bottom: 52px; }
+  .pathway-roadmap {
+    padding: 260px 20px 34px;
+    background:
+      linear-gradient(to bottom, rgba(246,244,236,.3) 0, rgba(246,244,236,.42) 240px, var(--paper) 240px),
+      url("/images/pathway/stakeholder-workshop.png") top center / auto 260px no-repeat;
+  }
+  .roadmap-line { top: 286px; bottom: 64px; left: 50px; width: 2px; height: auto; border: 0; border-left: 3px solid var(--teal-800); border-radius: 0; transform: none; }
+  .pathway-steps { min-height: auto; }
+  .pathway-step,
+  .pathway-step.step-1,
+  .pathway-step.step-2,
+  .pathway-step.step-3,
+  .pathway-step.step-4,
+  .pathway-step.step-5,
+  .pathway-step.step-6 {
+    position: relative;
+    inset: auto;
+    width: auto;
+    margin-bottom: 14px;
+  }
+  .pathway-step summary {
+    grid-template-columns: 38px 1fr;
+    width: 100%;
+    min-height: 58px;
+    place-content: initial;
+    align-items: center;
+    margin: 0;
+    padding: 9px 16px;
+    border-radius: 14px;
+    text-align: left;
+  }
+  .step-detail,
+  .step-5 .step-detail,
+  .step-6 .step-detail {
+    position: static;
+    width: auto;
+    margin: 8px 0 18px 56px;
+    transform: none;
+  }
+  .roadmap-credit { bottom: 9px; }
+  .evidence-card,
+  .evidence-card:nth-child(even) { grid-template-columns: 1fr; gap: 25px; }
+  .evidence-card:nth-child(even) .evidence-copy { order: initial; }
+  .system-module,
+  .system-module:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    min-height: 0;
+    padding: 64px 0;
+  }
+  .system-module:nth-child(even) .system-copy { order: initial; }
+  .system-module-wide .paired-figures,
+  .vertical-pair { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
@@ -571,6 +977,14 @@ h3 {
   .next-chapter { grid-template-columns: 1fr auto; gap: 12px; }
   .next-chapter span:first-child { grid-column: 1 / -1; }
   .next-chapter strong { text-align: left; }
+  .pathway-section,
+  .systems-section { padding-inline: 18px; }
+  .pathway-roadmap { padding-inline: 12px; }
+  .step-detail { margin-left: 40px; }
+  .evidence-card { padding: 18px; border-radius: 20px; }
+  .interface-card iframe { aspect-ratio: 4 / 5; }
+  .system-copy h3 { font-size: 2rem; }
+  .system-module figure img { max-height: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

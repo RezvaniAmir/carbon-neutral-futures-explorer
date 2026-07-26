@@ -1,0 +1,273 @@
+<div id="group6-interface">
+  <style>
+    #group6-interface {
+      color: var(--foreground);
+      display: grid;
+      gap: 1rem;
+    }
+    #group6-interface .g6-stepbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      align-items: center;
+    }
+    #group6-interface .g6-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.6fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    #group6-interface .g6-stack {
+      display: grid;
+      gap: .75rem;
+    }
+    #group6-interface blockquote {
+      margin: 0;
+      padding: 0;
+      font-weight: 500;
+    }
+    #group6-interface .g6-source {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      margin-bottom: .75rem;
+    }
+    #group6-interface .g6-heading {
+      margin: 0 0 .5rem;
+      font-weight: 500;
+    }
+    #group6-interface .g6-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: .5rem;
+      margin-top: .75rem;
+    }
+    #group6-interface .g6-match {
+      display: grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap: .75rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    #group6-interface .g6-match:last-child {
+      border-bottom: 0;
+    }
+    #group6-interface .g6-match p {
+      margin: .25rem 0 0;
+    }
+    #group6-interface [hidden] {
+      display: none !important;
+    }
+    @media (max-width: 620px) {
+      #group6-interface .g6-layout,
+      #group6-interface .g6-match {
+        grid-template-columns: 1fr;
+      }
+      #group6-interface .g6-actions {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+
+  <nav class="g6-stepbar" aria-label="AI-assisted scenario workflow">
+    <button type="button" class="btn btn-primary" data-step="translate" aria-pressed="true">
+      1. Translate input
+    </button>
+    <button type="button" class="btn" data-step="knowledge" aria-pressed="false">
+      2. Match policy knowledge
+    </button>
+    <button type="button" class="btn" data-step="review" aria-pressed="false">
+      3. Planner review
+    </button>
+    <span class="viz-badge">Illustrative example</span>
+  </nav>
+
+  <section data-panel="translate" class="g6-layout">
+    <article class="card g6-stack">
+      <div class="g6-source">
+        <i data-lucide="messages-square" aria-hidden="true"></i>
+        <strong>Stakeholder input</strong>
+      </div>
+      <blockquote>
+        “Accommodate new housing near public transport, use serviced land first,
+        protect connected green areas and make low-carbon travel convenient.”
+      </blockquote>
+      <label class="form-label" for="g6-target-year">Target year</label>
+      <select id="g6-target-year" class="form-select">
+        <option>2040</option>
+        <option selected>2045</option>
+        <option>2050</option>
+      </select>
+    </article>
+
+    <article class="card">
+      <p class="g6-heading">AI-assisted draft settings</p>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Interpretation</th>
+              <th>Draft scenario setting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Growth</td>
+              <td>Accommodate expected housing demand</td>
+            </tr>
+            <tr>
+              <td>Development priority</td>
+              <td>Serviced land near public transport</td>
+            </tr>
+            <tr>
+              <td>Spatial constraint</td>
+              <td>Protect connected ecological corridors</td>
+            </tr>
+            <tr>
+              <td>Urban form</td>
+              <td>Compact, mixed-use development</td>
+            </tr>
+            <tr>
+              <td>Mobility</td>
+              <td>Prioritize walking, cycling and public transport</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="g6-actions">
+        <button type="button" class="btn">Edit interpretation</button>
+        <button type="button" class="btn btn-primary" data-next="knowledge">
+          Find policy matches
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <section data-panel="knowledge" hidden>
+    <article class="card">
+      <p class="g6-heading">Relevant interventions from the policy knowledge base</p>
+
+      <div class="g6-match">
+        <div>
+          <strong>Transit-oriented development</strong>
+          <p class="text-muted">Compact growth around accessible public transport.</p>
+        </div>
+        <div>
+          <span class="viz-badge">Land use + transport</span>
+          <p class="text-small">Connects to density, development priority and modal split.</p>
+        </div>
+      </div>
+
+      <div class="g6-match">
+        <div>
+          <strong>Connected green infrastructure</strong>
+          <p class="text-muted">Protect corridors and allocate trees, green roofs and rain gardens.</p>
+        </div>
+        <div>
+          <span class="viz-badge">Green infrastructure</span>
+          <p class="text-small">Connects to protected land, NbS allocation and sequestration.</p>
+        </div>
+      </div>
+
+      <div class="g6-match">
+        <div>
+          <strong>Parking and active-mobility package</strong>
+          <p class="text-muted">Make low-carbon travel easier for new and existing neighbourhoods.</p>
+        </div>
+        <div>
+          <span class="viz-badge">Policy + behaviour</span>
+          <p class="text-small">Connects to parking provision and behavioural assumptions.</p>
+        </div>
+      </div>
+
+      <div class="g6-actions">
+        <button type="button" class="btn" data-next="translate">Back</button>
+        <button type="button" class="btn btn-primary" data-next="review">
+          Review draft
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <section data-panel="review" hidden>
+    <article class="card">
+      <p class="g6-heading">Planner review</p>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Suggested setting</th>
+              <th>Planner decision</th>
+              <th>Scenario status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prioritize transit-accessible areas</td>
+              <td>
+                <select class="form-select" aria-label="Decision for transit-accessible areas">
+                  <option selected>Edit walking distance</option>
+                  <option>Accept</option>
+                  <option>Exclude</option>
+                </select>
+              </td>
+              <td><span class="viz-badge">Included</span></td>
+            </tr>
+            <tr>
+              <td>Protect ecological corridors</td>
+              <td>
+                <select class="form-select" aria-label="Decision for ecological corridors">
+                  <option selected>Accept</option>
+                  <option>Edit</option>
+                  <option>Exclude</option>
+                </select>
+              </td>
+              <td><span class="viz-badge">Included</span></td>
+            </tr>
+            <tr>
+              <td>Reduce maximum parking provision</td>
+              <td>
+                <select class="form-select" aria-label="Decision for parking provision">
+                  <option selected>Defer for discussion</option>
+                  <option>Accept</option>
+                  <option>Edit</option>
+                </select>
+              </td>
+              <td><span class="viz-badge">Pending</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="g6-actions">
+        <button type="button" class="btn" data-next="knowledge">Back</button>
+        <button type="button" class="btn btn-primary">Use reviewed settings</button>
+      </div>
+    </article>
+  </section>
+
+  <script>
+    (() => {
+      const root = document.getElementById("group6-interface");
+      const stepButtons = Array.from(root.querySelectorAll("[data-step]"));
+      const panels = Array.from(root.querySelectorAll("[data-panel]"));
+
+      function showStep(step) {
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.panel !== step;
+        });
+        stepButtons.forEach((button) => {
+          const active = button.dataset.step === step;
+          button.setAttribute("aria-pressed", String(active));
+          button.classList.toggle("btn-primary", active);
+        });
+      }
+
+      root.addEventListener("click", (event) => {
+        const trigger = event.target.closest("[data-step], [data-next]");
+        if (!trigger) return;
+        showStep(trigger.dataset.step || trigger.dataset.next);
+      });
+    })();
+  </script>
+</div>
