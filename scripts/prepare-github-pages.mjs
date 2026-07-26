@@ -4,7 +4,7 @@ import { extname, join } from "node:path";
 const outputDirectory = new URL("../out/", import.meta.url);
 const repositoryPath = "/carbon-neutral-futures-explorer";
 const textExtensions = new Set([".css", ".html", ".js", ".json", ".txt", ".xml"]);
-const publicAssetRoots = ["favicon.svg", "images/"];
+const publicAssetRoots = ["favicon.svg", "images/", "interfaces/"];
 
 async function* walk(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
