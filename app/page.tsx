@@ -79,6 +79,204 @@ const pathwaySteps = [
   },
 ];
 
+const scenarioIndicators = [
+  "Spatial change",
+  "Carbon balance",
+  "Accessibility",
+  "Green provision",
+  "Planning compatibility",
+  "Target-year pathway",
+];
+
+const scenarios = [
+  {
+    name: "Current trajectory",
+    description:
+      "Development and travel patterns continue broadly along existing trends, with currently adopted measures.",
+    image: "/images/scenarios/project-location.jpg",
+    alt: "Sangamon project map showing existing and projected development",
+    credit: "Source: LEAM Team",
+    values: [
+      "Dispersed growth",
+      "Current measures",
+      "Uneven access",
+      "Existing network",
+      "Adopted plans",
+      "Incremental",
+    ],
+  },
+  {
+    name: "Compact growth",
+    description:
+      "More development is directed toward existing centres, services and public-transport connections.",
+    image: "/images/scenarios/land-use-change.jpg",
+    alt: "Detailed land-use-change result with a complete category legend",
+    credit: "Source: LEAM Team",
+    values: [
+      "Centres prioritised",
+      "Lower travel demand",
+      "Services closer",
+      "Targeted provision",
+      "Plan-led",
+      "Accelerated",
+    ],
+  },
+  {
+    name: "Green-connected growth",
+    description:
+      "Development is coordinated with green infrastructure, ecosystem protection, active mobility and targeted renewal.",
+    image: "/images/scenarios/stockholm-plan-comparison.jpg",
+    alt: "Four-panel comparison between modelled development and the Stockholm regional plan",
+    credit: "Source: KTH WaterCentre and LEAM Team",
+    values: [
+      "Connected pattern",
+      "Emissions + sinks",
+      "Active links",
+      "Expanded network",
+      "Priorities aligned",
+      "Coordinated",
+    ],
+  },
+];
+
+type Resource = {
+  name: string;
+  description: string;
+  domain: string;
+  href: string;
+  action: string;
+  image?: string;
+  alt?: string;
+  note?: string;
+  document?: boolean;
+};
+
+type ResourceGroup = {
+  title: string;
+  resources: Resource[];
+};
+
+const resourceGroups: ResourceGroup[] = [
+  {
+    title: "Integrated urban tools",
+    resources: [
+      {
+        name: "Nature-Based Solutions Dashboard",
+        description:
+          "Explore spatial indicators and the allocation and visualization of urban nature-based solutions.",
+        domain: "mit-dusp-nbs.github.io",
+        href: "https://mit-dusp-nbs.github.io/dusp-nbs/",
+        action: "Open dashboard",
+        image: "/images/resources/nbs-dashboard.jpg",
+        alt: "Nature-Based Solutions Dashboard allocation map",
+      },
+      {
+        name: "Last-Mile Transportation Tool",
+        description:
+          "Examine last-mile transportation choices and associated emissions.",
+        domain: "leam.illinois.edu",
+        href: "http://leam.illinois.edu/lastmile/",
+        action: "Open tool",
+        image: "/images/resources/last-mile-fallback.jpg",
+        alt: "Broader LEAM mobility example used because the legacy tool could not be captured",
+        note: "Project-owned fallback visual",
+      },
+      {
+        name: "LEAM land-use modelling",
+        description:
+          "Learn about the Land-use Evolution and Impact Assessment Model and its applications.",
+        domain: "leam.uiuc.edu",
+        href: "http://www.leam.uiuc.edu/",
+        action: "Visit website",
+        image: "/images/resources/leam-fallback.png",
+        alt: "LEAM forest land-cover project map used as a representative project visual",
+        note: "Project-owned fallback visual",
+      },
+    ],
+  },
+  {
+    title: "Ecosystem and carbon scenarios",
+    resources: [
+      {
+        name: "Conserved and protected land",
+        description:
+          "Examine conserved land, protection programmes and estimated carbon sequestration.",
+        domain: "sequestration.web.illinois.edu",
+        href: "https://sequestration.web.illinois.edu/currently-conserved/",
+        action: "Open assessment",
+        image: "/images/resources/currently-conserved.jpg",
+        alt: "Map of conserved and protected land",
+      },
+      {
+        name: "Historic land cover",
+        description:
+          "Compare historic and current land-cover patterns and use the historic landscape as a scenario reference.",
+        domain: "sequestration.web.illinois.edu",
+        href: "https://sequestration.web.illinois.edu/historic-landcover/",
+        action: "Open explorer",
+        image: "/images/resources/historic-landcover.jpg",
+        alt: "Historic and current land-cover comparison map",
+      },
+      {
+        name: "Restoring forests",
+        description:
+          "Compare forest-restoration scenarios and their estimated conservation and carbon outcomes.",
+        domain: "sequestration.web.illinois.edu",
+        href: "https://sequestration.web.illinois.edu/restoring-forests/",
+        action: "Open scenarios",
+        image: "/images/resources/restoring-forests.jpg",
+        alt: "Forest-restoration scenario map",
+      },
+      {
+        name: "Restoring wetlands",
+        description:
+          "Explore historic and current wetlands and the implications of wetland restoration.",
+        domain: "sequestration.web.illinois.edu",
+        href: "https://sequestration.web.illinois.edu/restoring-wetlands/",
+        action: "Open scenarios",
+        image: "/images/resources/restoring-wetlands.jpg",
+        alt: "Historic and current wetland restoration map",
+      },
+    ],
+  },
+  {
+    title: "Projects, methods and learning",
+    resources: [
+      {
+        name: "Sangamon model tour",
+        description:
+          "Follow a guided introduction to a previous LEAM land-use application.",
+        domain: "leam.illinois.edu",
+        href: "http://leam.illinois.edu/springfield2016/tour.html",
+        action: "Start the tour",
+        image: "/images/resources/sangamon-tour.jpg",
+        alt: "Sangamon projected-development map used as a project-owned fallback",
+        note: "Project-owned fallback visual",
+      },
+      {
+        name: "LEAM project collection",
+        description:
+          "Explore examples of spatial modelling, planning-support and environmental applications.",
+        domain: "geoscilab.web.illinois.edu",
+        href: "https://geoscilab.web.illinois.edu/projects.html",
+        action: "View projects",
+        image: "/images/resources/leam-projects.jpg",
+        alt: "Collection of LEAM project examples",
+      },
+      {
+        name: "LEAM model technical guide",
+        description:
+          "Learn how the land-use model is configured and used.",
+        domain: "plone.rehearsal.uiuc.edu",
+        href: "http://plone.rehearsal.uiuc.edu/gLEAM/report/LEAM_Model_Technical.pdf",
+        action: "Open technical guide",
+        document: true,
+        note: "PDF · legacy endpoint",
+      },
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -339,7 +537,7 @@ export default function Home() {
                   className="text-link"
                   href="https://sequestration.web.illinois.edu/historic-landcover/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Explore historic land cover ↗
                 </a>
@@ -433,7 +631,7 @@ export default function Home() {
                   className="text-link"
                   href="http://leam.illinois.edu/lastmile/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Explore the Last-Mile tool ↗
                 </a>
@@ -461,7 +659,7 @@ export default function Home() {
                   className="text-link"
                   href="https://mit-dusp-nbs.github.io/dusp-nbs/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Open the Nature-Based Solutions Dashboard ↗
                 </a>
@@ -499,7 +697,7 @@ export default function Home() {
                   className="text-link"
                   href="https://sequestration.web.illinois.edu/currently-conserved/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Open the conserved-land assessment ↗
                 </a>
@@ -554,13 +752,226 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="next-chapter" id="futures" aria-label="Comparing futures preview">
-          <span>Next chapter</span>
-          <strong>Compare possible futures before choices are fixed</strong>
-          <span aria-hidden="true">05 ↘</span>
+        <section className="futures-section" id="futures" aria-labelledby="futures-title">
+          <div className="section-number" aria-hidden="true">05</div>
+          <div className="section-heading futures-heading">
+            <div>
+              <p className="eyebrow">Comparing futures</p>
+              <h2 id="futures-title">Compare possible futures before choices are fixed</h2>
+            </div>
+            <p>
+              Scenarios help planners examine how different combinations of
+              growth, policy and investment could shape the city. They are
+              structured explorations informed by explicit assumptions.
+            </p>
+          </div>
+
+          <div className="comparison-label">
+            <span>Shared comparison workspace</span>
+            <strong>Illustrative scenario values</strong>
+          </div>
+
+          <div className="comparison-grid">
+            <div className="indicator-rail" aria-hidden="true">
+              <div className="rail-spacer">Common indicators</div>
+              {scenarioIndicators.map((indicator) => (
+                <span key={indicator}>{indicator}</span>
+              ))}
+            </div>
+            <div className="scenario-scroll">
+              {scenarios.map((scenario) => (
+                <article className="scenario-column" key={scenario.name}>
+                  <header>
+                    <h3>{scenario.name}</h3>
+                    <p>{scenario.description}</p>
+                  </header>
+                  <figure>
+                    <a
+                      href={scenario.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Expand map for ${scenario.name}`}
+                    >
+                      <img src={scenario.image} alt={scenario.alt} loading="lazy" />
+                      <span>Expand map ↗</span>
+                    </a>
+                    <figcaption>{scenario.credit}</figcaption>
+                  </figure>
+                  <dl>
+                    {scenarioIndicators.map((indicator, index) => (
+                      <div key={indicator}>
+                        <dt>{indicator}</dt>
+                        <dd>{scenario.values[index]}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="restoration-block">
+            <div className="restoration-heading">
+              <p className="eyebrow">Landscape restoration</p>
+              <h3>What if restoration expands?</h3>
+              <p>
+                Urban climate pathways can include ecosystem restoration
+                alongside changes to buildings, transport and development.
+              </p>
+            </div>
+            <div className="restoration-links">
+              <a
+                href="https://sequestration.web.illinois.edu/restoring-forests/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/resources/restoring-forests.jpg" alt="" loading="lazy" />
+                <span>
+                  <strong>Restore forests</strong>
+                  Compare 30%, 50% and full historic-extent scenarios.
+                </span>
+                <i aria-hidden="true">↗</i>
+              </a>
+              <a
+                href="https://sequestration.web.illinois.edu/restoring-wetlands/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/resources/restoring-wetlands.jpg" alt="" loading="lazy" />
+                <span>
+                  <strong>Restore wetlands</strong>
+                  Examine conservation and carbon implications.
+                </span>
+                <i aria-hidden="true">↗</i>
+              </a>
+              <a
+                href="https://mit-dusp-nbs.github.io/dusp-nbs/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/resources/nbs-dashboard.jpg" alt="" loading="lazy" />
+                <span>
+                  <strong>Allocate urban NbS</strong>
+                  Explore allocation using spatial needs and priorities.
+                </span>
+                <i aria-hidden="true">↗</i>
+              </a>
+            </div>
+          </div>
+
+          <details className="city-evidence">
+            <summary>
+              <span>Evidence across cities</span>
+              <strong>Open six-city comparison</strong>
+            </summary>
+            <figure>
+              <img
+                src="/images/scenarios/six-city-nbs.jpg"
+                alt="Nature-based-solution combinations across six European cities"
+                loading="lazy"
+              />
+              <figcaption>
+                Examples of nature-based-solution combinations across six
+                European cities. · Source: LEAM Team
+              </figcaption>
+            </figure>
+          </details>
+
+          <aside className="interpretation-panel">
+            <div>
+              <span className="status-label">Concept interface</span>
+              <p className="eyebrow">AI-supported interpretation</p>
+              <h3>Move between priorities, inputs and understandable results</h3>
+              <p>
+                AI can help align stakeholder input with scenario settings,
+                retrieve relevant measures, draft intervention descriptions
+                and summarize important differences between scenarios.
+              </p>
+              <ul>
+                <li>Policy and stakeholder priorities</li>
+                <li>Spatial or numerical model inputs</li>
+                <li>Clear comparison summaries</li>
+              </ul>
+            </div>
+            <figure>
+              <span className="status-label">Concept visualisation</span>
+              <img
+                src="/images/systems/green-streetscape.png"
+                alt="Illustrative green-connected streetscape with active mobility and nature-based solutions"
+                loading="lazy"
+              />
+              <figcaption>
+                Illustrative intervention visual: project team. This view is
+                not a verified model output.
+              </figcaption>
+            </figure>
+          </aside>
+
+          <p className="trust-note">
+            These tools support exploratory scenario assessment. Their outputs
+            should be considered alongside local evidence, planning processes
+            and stakeholder knowledge.
+          </p>
         </section>
 
-        <div id="resources" className="future-anchor" />
+        <section className="resources-section" id="resources" aria-labelledby="resources-title">
+          <div className="section-number" aria-hidden="true">06</div>
+          <div className="section-heading resources-heading">
+            <div>
+              <p className="eyebrow">Existing tools and resources</p>
+              <h2 id="resources-title">Explore the tools behind the planning pathway</h2>
+            </div>
+            <p>
+              The Explorer brings together existing applications, project
+              examples and learning materials. Each resource opens at its
+              source in a new tab.
+            </p>
+          </div>
+
+          <div className="resource-groups">
+            {resourceGroups.map((group) => (
+              <section className="resource-group" key={group.title} aria-labelledby={`resource-${group.title.replaceAll(" ", "-").toLowerCase()}`}>
+                <h3 id={`resource-${group.title.replaceAll(" ", "-").toLowerCase()}`}>{group.title}</h3>
+                <div className="resource-grid">
+                  {group.resources.map((resource) => (
+                    <a
+                      className={`resource-card${resource.document ? " document-card" : ""}`}
+                      href={resource.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={resource.name}
+                      aria-label={`${resource.action}: ${resource.name} (opens external site in a new tab)`}
+                    >
+                      {resource.document ? (
+                        <div className="document-visual" aria-hidden="true">
+                          <span>PDF</span>
+                          <strong>LEAM</strong>
+                          <small>Model technical guide</small>
+                        </div>
+                      ) : (
+                        <img src={resource.image ?? ""} alt={resource.alt ?? ""} loading="lazy" />
+                      )}
+                      <div className="resource-copy">
+                        <span className="resource-domain">{resource.domain}</span>
+                        <h4>{resource.name}</h4>
+                        <p>{resource.description}</p>
+                        {resource.note && <small>{resource.note}</small>}
+                        <strong>{resource.action} ↗</strong>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </section>
+
+        <section className="next-chapter" aria-label="About chapter preview">
+          <span>Next chapter</span>
+          <strong>About the project and its partners</strong>
+          <span aria-hidden="true">07 ↘</span>
+        </section>
+
         <div id="about" className="future-anchor" />
       </main>
     </>
