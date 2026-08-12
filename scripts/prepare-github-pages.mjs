@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import { extname, join } from "node:path";
 
 const outputDirectory = new URL("../out/", import.meta.url);
-const repositoryPath = "/carbon-neutral-futures-explorer";
+const repositoryPath = "";
 const textExtensions = new Set([".css", ".html", ".js", ".json", ".txt", ".xml"]);
 const publicAssetRoots = ["favicon.svg", "images/", "interfaces/"];
 
